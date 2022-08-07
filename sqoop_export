@@ -1,0 +1,14 @@
+###### Simple example for sqoop export
+###### Here we will be exporting hdfs file data into MySQL table (existing table). 
+###### If sqoop export fails it does a partial load inorder to solve this we have used staging table. Data will be exported to staging table first and then to the target table. Once export is complete we clear the staging table.
+
+
+sqoop export \
+--connect jdbc:mysql:/XXXXXXXXXXXXXX:3000/reatil_db \
+--username username \
+--password password \
+--table GroceriesDetails \
+--staging-table staging_GroceriesDetails \
+--export-dir /user/HDFSDir/GroceriesDetails.csv \
+--fields-terminated-by ',' \
+--clear-staging-table
