@@ -5,4 +5,4 @@
 
 ####### sqoop_export: In this example, we will be exporting hdfs file into an existing MySQL database table.
 
-####### sqoop_password_encrypt: In this examples of, how to refer password stored in file and encrypted password using password-alias in sqoop.
+####### sqoop_password_encrypt: In this examples, we will see differnt way to refer passwords in sqoop.
