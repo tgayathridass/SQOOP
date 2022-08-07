@@ -1,0 +1,42 @@
+#####Sqoop is a mapreduce job where only mapper will be running and no reducer(default 4 mappers). 
+#####In this example we have changed the no of mappers to 6 for orders table to increase parallelism ( --m ).
+#####this  sqoop job which will be executing incremental append import. Although its a incremental append we will not be having duplicates in the next import as we are using merge-key.
+
+
+
+#####importing orders table from mysql
+
+sqoop job \
+--create orders_job \ 
+-- import \
+--connect jdbc:mysql://XXXXXXXXXXX:3000/retail_db \
+--username username \
+--password password \
+--table orders \
+--split-by order_id \
+--warehouse-dir /user/hdfsDir/ \
+--incremental append \
+--check-column order_id \
+--last-value 0 \
+--merge-key order_id \
+--m 6 \
+--compress
+
+
+#importing customers table from mysql
+
+sqoop job \
+--create customers_job \ 
+-- import \
+--connect jdbc:mysql://XXXXXXXXXX:3000/retail_db \
+--username username \
+--password password \
+--table customers \
+--split-by customer_id \
+--warehouse-dir /user/hdfsDir/ \
+--incremental append \
+--check-column customer_id \
+--last-value 0 \
+--merge-key customer_id \
+--compress 
+
