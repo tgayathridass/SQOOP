@@ -1,0 +1,12 @@
+// consider there are 100 tables in a database. write a sqoop command to import all the tables except 18th, 70th, 50th tables.
+// you can use  import-all-tables and the --exclude-tables ( to exclude those tables from the import) options in Sqoop.
+
+
+sqoop import-all-tables \
+--connect jdbc:<database_connection_string> \
+--username <username> \
+--password <password> \
+--exclude-tables <table18>,<table50>,<table70> \
+--warehouse-dir <hdfs_path_to_store_imported_data>
+
+
