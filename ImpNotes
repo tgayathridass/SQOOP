@@ -1,0 +1,4 @@
+File format :
+By default, Sqoop uses text file format to import data into Hadoop Distributed File System (HDFS). 
+The text file format is a plain text format, where each record is represented as a separate line, and each field within a record is separated by a delimiter (by default, the delimiter is a comma).
+Sqoop also provides the ability to specify other file formats for the imported data using the --as-avrodatafile, --as-parquetfile, --as-sequencefile, and --as-textfile options.
