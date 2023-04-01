@@ -1,4 +1,4 @@
-##### Sqoop: You can find the most commonly used sqoop commands and concepts in a Big data project on daily basis
+##### Sqoop: You can find the most commonly used sqoop commands and concepts in a Big data project on a daily basis
 
 
 ####### sqoop_import: In this example, we will be importing from MySQL database tables (customers and orders) data into HDFS using sqoop incremental import job.
