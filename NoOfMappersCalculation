@@ -1,0 +1,19 @@
+Number of mappers = total data size / (mapper size * replication factor)
+Mapper size = (total data size / number of nodes) / 2
+
+
+For example, if you have 10 GB of data to import using Sqoop
+and a cluster of 5 nodes, you could start by using the following formula to determine an initial number of mappers:
+
+Mapper size = (total data size / number of nodes) / 2
+Mapper size = (10 GB / 5) / 2
+Mapper size = 1 GB
+
+Number of mappers = total data size / (mapper size * replication factor)
+Assuming a mapper size of 1 GB and a replication factor of 3, this formula gives:
+Number of mappers = 10 GB / (1 GB * 3)
+Number of mappers = 3
+
+
+This formula calculates a total of 3 mappers, which means that the data will be split into 3 equal parts and each part will be processed by a separate mapper. 
+However, you may need to adjust the number of mappers based on factors such as available resources, data distribution, and processing time.
